@@ -1,6 +1,6 @@
 # 📦 UiPath Bot – PIV_LocatorBot
 
-This project demonstrates an enterprise-grade UiPath automation built using the **Robotic Enterprise Framework (REFramework)**. The bot extracts, validates, and logs invoice data from a specified input folder, simulates a line-item matching process, and logs the results into a transaction log.
+PIV Locator Bot is used to extract data from Outlook to an excel file then process it through the EUA portal. It then finally send the corresponding email after determine the distance from the base location to qualified individuals. 
 
 ---
 
