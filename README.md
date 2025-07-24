@@ -5,20 +5,30 @@ PIV Locator Bot is used to extract data from Outlook to an excel file then proce
 ---
 
 ## 📁 Project Structure
-
-This project follows the standard REFramework structure:
+This project follows the customized stage structure, which can continue from the last stage check-point in case of the bot crash in the middle of the run.
 
 ```
-📂 InvoiceProcessor_REFramework/
-├── Framework/
-│   ├── GetAppCredentials.xaml
-│   ├── InitAllApplications.xaml
-│   └── InitAllSettings.xaml
+📂 PIV_LocatorBot/
 ├── Data/
-│   ├── Config.xlsx
-│   └── InputInvoices/
-├── Process/
-│   └── Process.xaml
+│   ├── CMS_Email_Lookup.xlsx
+│   ├── CMS_State_Country_Lookup.xaml
+│   ├── CMSLocatorV3.xlsx
+│   ├── Config.xaml
+│   └── Emails.xaml
+├── EUA/
+│   ├── EUA_Login.xaml
+│   ├── EUA_Navigation.xaml
+│   └── EUA_Processing.xaml
+├── Finalize/
+│   ├── Clean_MainProcess.xaml
+│   ├── NotifyUser_Error.xaml
+│   └── SendEmails.xaml
+├── Initialize/
+│   ├── Config_Setup.xaml
+│   ├── Kill_Process.xaml
+├── Outlook/
+│   ├── Config_Setup.xaml
+│   ├── Kill_Process.xaml
 ├── Main.xaml
 ├── Project.json
 └── README.md
