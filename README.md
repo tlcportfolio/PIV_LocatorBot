@@ -25,78 +25,49 @@ This project follows the customized stage structure, which can continue from the
 │   └── SendEmails.xaml
 ├── Initialize/
 │   ├── Config_Setup.xaml
-│   ├── Kill_Process.xaml
+│   └── Kill_Process.xaml
 ├── Outlook/
-│   ├── Config_Setup.xaml
-│   ├── Kill_Process.xaml
-├── Main.xaml
+│   ├── Outlook_GetEmailData.xaml
+│   ├── Outlook_SendPIVEmail.xaml
+│   └── SendEmails.xaml
+├── Process/
+│   ├── StageConfirmation.xaml
 ├── Project.json
 └── README.md
-```
 
 ---
-
 ## 🔧 Configuration
-
 All configuration values are stored in `Data/Config.xlsx`, including:
 - Input/Output folder paths
 - Exception handling settings
-- Application credentials (via Orchestrator Assets)
-
----
 
 ## 🔄 Workflow Overview
-
 ### 1. **Init State**
-- Reads config file and initializes applications (if needed)
-- Retrieves credentials from Orchestrator
+- Reads config file and initializes application
 
-### 2. **Get Transaction Data**
-- Scans `InputInvoices/` directory for `.pdf` or `.xlsx` files
-- Loads filenames into the transaction queue
+### 2. **Get E-QIP Email Info**
 
-### 3. **Process Transaction**
-- Extracts invoice data using Regex and/or Excel activities
-- Performs a dummy line-item match (simulate business logic)
-- Logs results to output or Transaction Log sheet
+### 3. **Send PIV Email**
 
-### 4. **End Process**
+### 4. **Send Status Email**
 - Closes applications and performs clean-up
 
 ---
 
 ## 📊 Logs & Exception Handling
-
-- Transaction-level exceptions are handled using the built-in `SetTransactionStatus.xaml`
-- Business and system exceptions are logged to Orchestrator
-- Uses Retry mechanism for system exceptions as defined in Config
-
----
-
-## 🧪 Testing
-
-Use the sample files provided in `Data/InputInvoices/` to test various scenarios:
-- Valid invoice
-- Invalid format
-- Missing data
-
----
+- Business and system exceptions are logged to local folder.
+- Log is customized per individual xaml.
+- Uses Retry mechanism for system exceptions as defined in Config.
 
 ## 📦 Dependencies
-
-- UiPath.System.Activities
-- UiPath.Excel.Activities
-- UiPath.Mail.Activities (optional)
-
----
+- Microsoft 365 - v2.2.7
+- UiPath.System.Activities - v22.4.1
+- UiPath.Excel.Activities - v2.20.2
+- UiPath.Mail.Activities - v1.18.2
+- UiPath.UiAutomation.Activities - v22.10.3
 
 ## 📝 Notes
-
 This bot is designed to be modular and scalable. It can be extended to support:
-- Integration with ERP systems (via API)
-- OCR-based invoice processing
-- Queue-based dispatch/performer model
-
 ---
 
 ## 📬 Contact
